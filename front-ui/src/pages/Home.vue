@@ -2,6 +2,9 @@
   <div>
     <header class="full-page">
       <top></top>
+      <div class="scroll-down">
+        <img src="../assets/img/Home/allow-bottom.png" alt="" />
+      </div>
     </header>
   </div>
 </template>
@@ -9,12 +12,28 @@
 import top from "../components/Top.vue";
 </script>
 <style scoped lang="scss">
+@import "../style/_style.scss";
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 0.4;
+  }
+  50% {
+    top: -16px;
+    opacity: 1;
+    filter: none;
+  }
+  100% {
+    top: 0;
+    opacity: 0.4;
+  }
+}
 .full-page {
   height: 100vh;
   background-attachment: fixed;
   position: relative;
   width: 100%;
-  background-image: url(../assets/Home/banner.jpg);
+  background-image: url(../assets/img/Home/banner.jpg);
   background-color: #49b1f5;
   background-position: center center;
   background-size: cover;
@@ -24,5 +43,31 @@ import top from "../components/Top.vue";
   -o-transition: all 0.5s;
   -ms-transition: all 0.5s;
   transition: all 0.5s;
+  .full-page::before {
+    content: "♥";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .scroll-down {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    img {
+      position: relative;
+      width: 30px;
+      height: 30px;
+      animation: scroll-down-effect 1.5s infinite;
+    }
+  }
+}
+.full-page:not(.not-top-img):before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  content: "";
 }
 </style>

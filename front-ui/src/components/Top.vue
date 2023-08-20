@@ -1,10 +1,51 @@
 <template>
   <nav class="nav show">
     <span class="blog-info">shan博客</span>
-    <div id="menus"></div>
+    <div class="menus">
+      <a-menu mode="horizontal" hash-priority="high">
+        <a-menu-item key="mail">
+          <template #icon>
+            <mail-outlined />
+          </template>
+          个人简介
+        </a-menu-item>
+        <a-menu-item key="search">
+          <template #icon>
+            <SearchOutlined />
+          </template>
+          搜索
+        </a-menu-item>
+        <a-sub-menu>
+          <template #icon>
+            <container-outlined />
+          </template>
+          <template #title>技术博客文档</template>
+          <a-menu-item-group>
+            <a-menu-item key="setting:1">前端</a-menu-item>
+            <a-menu-item key="setting:2">通讯</a-menu-item>
+          </a-menu-item-group>
+        </a-sub-menu>
+        <a-menu-item key="chat">
+          <template #icon>
+            <comment-outlined />
+          </template>
+          留言板
+        </a-menu-item>
+      </a-menu>
+    </div>
   </nav>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from "vue";
+import {
+  MailOutlined,
+  ContainerOutlined,
+  CommentOutlined,
+  SearchOutlined,
+} from "@ant-design/icons-vue";
+const current = ref(["mail"]);
+console.log(current);
+</script>
 <style scoped lang="scss">
 @import "../style/_style.scss";
 @keyframes headerNoOpacity {
@@ -33,7 +74,6 @@
   width: 100%;
   height: 60px;
   font-size: 1.3em;
-  opacity: 0;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -o-transition: all 0.5s;
@@ -54,8 +94,26 @@
     -ms-flex: 1;
     flex: 1;
     color: $light-grey;
+    font-family: "titilliumweb";
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    font-weight: 700;
   }
   .menus {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    color: $light-grey;
   }
+}
+:where(.css-dev-only-do-not-override-eq3tly).ant-menu-light {
+  color: $light-grey;
+  background: transparent;
+}
+:where(.css-dev-only-do-not-override-eq3tly).ant-menu-horizontal {
+  border: 0;
 }
 </style>
