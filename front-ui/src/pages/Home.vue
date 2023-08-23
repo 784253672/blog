@@ -2,14 +2,23 @@
   <div>
     <header class="full-page">
       <top></top>
-      <div class="scroll-down">
+      <div class="scroll-down" @click="clickScrollDown">
         <img src="../assets/img/Home/allow-bottom.png" alt="" />
       </div>
     </header>
+    <section style="height: 500px; width: 100%"></section>
   </div>
 </template>
 <script setup lang="ts">
 import top from "../components/Top.vue";
+
+// 点击底部滑动按钮
+const clickScrollDown = (): void => {
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: "smooth",
+  });
+};
 </script>
 <style scoped lang="scss">
 @import "../style/_style.scss";

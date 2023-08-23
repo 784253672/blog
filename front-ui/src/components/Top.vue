@@ -31,6 +31,12 @@
           </template>
           留言板
         </a-menu-item>
+        <a-menu-item @click="clickNav(4)" key="publish-sarticle">
+          <template #icon>
+            <DiffOutlined />
+          </template>
+          发布文章
+        </a-menu-item>
       </a-menu>
     </div>
   </nav>
@@ -42,8 +48,29 @@ import {
   ContainerOutlined,
   CommentOutlined,
   SearchOutlined,
+  DiffOutlined,
 } from "@ant-design/icons-vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const current = ref(["mail"]);
+// 自定义导航栏类型
+type NavOptions = {
+  [key: number]: string;
+};
+const navOptions: NavOptions = {
+  0: "Home",
+  1: "",
+  2: "",
+  3: "",
+  4: "PublishArticle",
+};
+
+// 点击导航栏按钮
+const clickNav: Function = (index: number) => {
+  const selectNav: string = navOptions[index];
+  router.push(`${selectNav}`);
+};
 console.log(current);
 </script>
 <style scoped lang="scss">
