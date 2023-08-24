@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.197",
+    "@vueup/vue-quill": "^1.2.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^1.0.2",
     "ant-design-vue": "4.x",
     "pinia": "^2.1.6",
     "sass": "^1.66.1",

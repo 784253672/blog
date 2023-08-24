@@ -42,7 +42,6 @@
   </nav>
 </template>
 <script setup lang="ts">
-import { ref } from "vue";
 import {
   MailOutlined,
   ContainerOutlined,
@@ -53,7 +52,6 @@ import {
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const current = ref(["mail"]);
 // 自定义导航栏类型
 type NavOptions = {
   [key: number]: string;
@@ -71,7 +69,6 @@ const clickNav: Function = (index: number) => {
   const selectNav: string = navOptions[index];
   router.push(`${selectNav}`);
 };
-console.log(current);
 </script>
 <style scoped lang="scss">
 @import "../style/_style.scss";
@@ -113,6 +110,7 @@ console.log(current);
     animation: headerNoOpacity 1s;
   }
   .blog-info {
+    cursor: pointer;
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     -o-box-flex: 1;

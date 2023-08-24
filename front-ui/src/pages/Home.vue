@@ -1,7 +1,6 @@
 <template>
   <div>
     <header class="full-page">
-      <top></top>
       <div class="scroll-down" @click="clickScrollDown">
         <img src="../assets/img/Home/allow-bottom.png" alt="" />
       </div>
@@ -10,7 +9,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import top from "../components/Top.vue";
 
 // 点击底部滑动按钮
 const clickScrollDown = (): void => {

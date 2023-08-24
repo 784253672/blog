@@ -9,6 +9,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/home",
     component: () => import("../pages/Home.vue"),
   },
+  {
+    path: "/PublishArticle",
+    component: () => import("../pages/PublishArticle.vue"),
+  },
 ];
 
 const router = createRouter({
